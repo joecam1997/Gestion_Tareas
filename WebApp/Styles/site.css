@@ -1,0 +1,579 @@
+﻿/* ============================================================
+   GestorTareas — Estilos Globales
+   Fuentes: Rajdhani (display) + Source Sans 3 (cuerpo)
+   Tema: Industrial / utilitarian con acentos azul eléctrico
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+    --bg: #0f1117;
+    --bg-card: #181c27;
+    --bg-input: #1e2235;
+    --border: #2a2f45;
+    --border-focus: #3d7fff;
+    --accent: #3d7fff;
+    --accent-dim: #1a3a7a;
+    --accent-glow: rgba(61,127,255,0.25);
+    --text: #e8ecf4;
+    --text-muted: #6b7494;
+    --text-label: #9aa3c2;
+    --danger: #ff4d6a;
+    --success: #2dce89;
+    --warning: #ffb74d;
+    --radius: 6px;
+    --shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+
+/* ── Reset base ─────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* ── Tipografía ─────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--text);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+/* ── Layout principal ───────────────────────────────────────── */
+.gt-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.gt-navbar {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+    .gt-navbar .brand {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+        .gt-navbar .brand span {
+            color: var(--accent);
+        }
+
+    .gt-navbar .nav-links {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+        .gt-navbar .nav-links a {
+            color: var(--text-label);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.15s, color 0.15s;
+        }
+
+            .gt-navbar .nav-links a:hover,
+            .gt-navbar .nav-links a.active {
+                background: var(--accent-dim);
+                color: var(--accent);
+                text-decoration: none;
+            }
+
+    .gt-navbar .nav-user {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+        .gt-navbar .nav-user strong {
+            color: var(--text-label);
+        }
+
+/* ── Contenido principal ────────────────────────────────────── */
+.gt-main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.gt-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.gt-card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-label);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Formularios ─────────────────────────────────────────────── */
+.gt-form-group {
+    margin-bottom: 1.1rem;
+}
+
+    .gt-form-group label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-label);
+        margin-bottom: 0.4rem;
+    }
+
+    .gt-form-group input[type="text"],
+    .gt-form-group input[type="password"],
+    .gt-form-group input[type="date"],
+    .gt-form-group select,
+    .gt-form-group textarea {
+        width: 100%;
+        background: var(--bg-input);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        color: var(--text);
+        padding: 0.55rem 0.85rem;
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 0.95rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        outline: none;
+        appearance: none;
+    }
+
+        .gt-form-group input:focus,
+        .gt-form-group select:focus,
+        .gt-form-group textarea:focus {
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .gt-form-group select option {
+            background: var(--bg-card);
+        }
+
+    .gt-form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+.gt-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* ── Botones ─────────────────────────────────────────────────── */
+.gt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.1s;
+}
+
+    .gt-btn:active {
+        transform: scale(0.97);
+    }
+
+    .gt-btn:hover {
+        filter: brightness(1.12);
+    }
+
+.gt-btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.gt-btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.gt-btn-success {
+    background: var(--success);
+    color: #fff;
+}
+
+.gt-btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-label);
+}
+
+    .gt-btn-ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        filter: none;
+    }
+
+.gt-btn-sm {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.82rem;
+}
+
+/* ── Tablas ──────────────────────────────────────────────────── */
+.gt-table-wrap {
+    overflow-x: auto;
+}
+
+.gt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+    .gt-table thead th {
+        background: var(--bg);
+        color: var(--text-label);
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.65rem 1rem;
+        text-align: left;
+        border-bottom: 2px solid var(--border);
+    }
+
+    .gt-table tbody tr {
+        border-bottom: 1px solid var(--border);
+        transition: background 0.12s;
+    }
+
+        .gt-table tbody tr:hover {
+            background: rgba(61,127,255,0.05);
+        }
+
+    .gt-table tbody td {
+        padding: 0.7rem 1rem;
+        color: var(--text);
+        vertical-align: middle;
+    }
+
+    .gt-table .actions {
+        display: flex;
+        gap: 0.4rem;
+    }
+
+/* ── Badges de estado ────────────────────────────────────────── */
+.gt-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.gt-badge-green {
+    background: rgba(45,206,137,0.15);
+    color: var(--success);
+}
+
+.gt-badge-blue {
+    background: rgba(61,127,255,0.15);
+    color: var(--accent);
+}
+
+.gt-badge-yellow {
+    background: rgba(255,183,77,0.15);
+    color: var(--warning);
+}
+
+.gt-badge-red {
+    background: rgba(255,77,106,0.15);
+    color: var(--danger);
+}
+
+.gt-badge-gray {
+    background: rgba(107,116,148,0.15);
+    color: var(--text-muted);
+}
+
+/* ── Filtros ─────────────────────────────────────────────────── */
+.gt-filters {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: flex-end;
+}
+
+    .gt-filters .gt-form-group {
+        margin-bottom: 0;
+        min-width: 160px;
+        flex: 1;
+    }
+
+/* ── Mensajes de alerta ──────────────────────────────────────── */
+.gt-alert {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gt-alert-error {
+    background: rgba(255,77,106,0.12);
+    border-left: 3px solid var(--danger);
+    color: var(--danger);
+}
+
+.gt-alert-success {
+    background: rgba(45,206,137,0.12);
+    border-left: 3px solid var(--success);
+    color: var(--success);
+}
+
+.gt-alert-info {
+    background: rgba(61,127,255,0.12);
+    border-left: 3px solid var(--accent);
+    color: var(--accent);
+}
+
+/* ── jQuery UI overrides ─────────────────────────────────────── */
+.ui-datepicker {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    color: var(--text) !important;
+    font-family: 'Source Sans 3', sans-serif !important;
+    box-shadow: var(--shadow) !important;
+}
+
+.ui-datepicker-header {
+    background: var(--bg) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    color: var(--text) !important;
+}
+
+.ui-datepicker td a, .ui-datepicker td span {
+    color: var(--text) !important;
+    border-radius: 4px !important;
+}
+
+    .ui-datepicker td a:hover {
+        background: var(--accent-dim) !important;
+    }
+
+.ui-datepicker td.ui-datepicker-today a {
+    background: var(--accent-dim) !important;
+    color: var(--accent) !important;
+}
+
+.ui-datepicker td.ui-state-active a {
+    background: var(--accent) !important;
+    color: #fff !important;
+}
+
+.ui-datepicker-prev, .ui-datepicker-next {
+    top: 6px !important;
+    cursor: pointer;
+}
+
+/* jQuery UI Tooltip */
+.ui-tooltip {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-label) !important;
+    font-family: 'Source Sans 3', sans-serif !important;
+    font-size: 0.82rem !important;
+    border-radius: var(--radius) !important;
+    padding: 0.4rem 0.75rem !important;
+    box-shadow: var(--shadow) !important;
+    max-width: 260px;
+}
+
+/* jQuery UI Dialog */
+.ui-dialog {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow) !important;
+    color: var(--text) !important;
+    font-family: 'Source Sans 3', sans-serif !important;
+}
+
+.ui-dialog-titlebar {
+    background: var(--bg) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+}
+
+.ui-dialog-buttonpane {
+    background: var(--bg) !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+    .ui-dialog-buttonpane button {
+        font-family: 'Rajdhani', sans-serif !important;
+        font-weight: 700 !important;
+    }
+
+.ui-button.ui-state-default {
+    background: var(--accent) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+    .ui-button.ui-state-default:hover {
+        filter: brightness(1.15);
+    }
+
+.ui-widget-overlay {
+    background: rgba(0,0,0,0.65) !important;
+    opacity: 1 !important;
+}
+
+/* ── Scrollbar personalizado ─────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-dim);
+    }
+
+/* ── Utilidades ──────────────────────────────────────────────── */
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gap-1 {
+    gap: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
