@@ -247,7 +247,7 @@ INSERT INTO Usuario (
     1, '1990-01-01',
     1, 1, 'admin',
     -- SHA-256 de "Admin123!" = a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
-    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',
+    '3eb3fe66b31e3b4d10fa70b5cad49c7112294af6ae4e476a1c405155d45aa121',
     1
 );
 GO
